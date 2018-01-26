@@ -1,0 +1,50 @@
+<p>your Text Encrypted: {{ encode3}}</p>
+<p>your Text Decrypted: {{ decode3}}</p>
+<!--<p> your Text: {{ decode}}</p>
+
+
+
+
+def bad():
+	key = 'abcdefghijklmnopqrstuvwxyz'
+	key2 = '123456789'
+	def encrypt(n, plaintext):
+		"""Encrypt the string and return the ciphertext"""
+		result = ''
+
+		for l in plaintext.lower():
+			try:
+				i = (key.index(l) + n) % 26
+				result += key[i]
+			except ValueError:
+				result += l
+
+		return result.lower()
+
+	def decrypt(n, ciphertext):
+		"""Decrypt the string and return the plaintext"""
+		result = ''
+
+		for l in ciphertext:
+			try:
+				i = (key.index(l) - n) % 26
+				result += key[i]
+			except ValueError:
+				result += l
+
+		return result
+
+	text = raw_input(str('Enter your Text :'))
+
+
+	offset = 5
+	encode = base64.b64encode(encrypt(offset, text))
+	decode = base64.b64decode(encode)
+	#encrypted = encrypt(offset, text)
+	os.system('cls')
+	print('Encrypted:', encode)
+
+	decrypted = decrypt(offset, decode)
+	print('Decrypted:', decrypted)
+	anykey= raw_input("Enter anything to return to man menu: ")
+	os.system('cls')
