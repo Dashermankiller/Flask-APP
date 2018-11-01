@@ -11,6 +11,7 @@ from googlevoice.util import input
 import base64
 key = 'abcdefghijklmnopqrstuvwxyz'
 key2 = '123456789'
+# Encryption Fucntion:
 def encrypt(n, plaintext):
 	"""Encrypt the string and return the ciphertext"""
 	result = ''
@@ -23,7 +24,7 @@ def encrypt(n, plaintext):
 			result += l
 
 	return result.lower()
-
+# Decryption Funcion:
 def decrypt(n, ciphertext):
 	"""Decrypt the string and return the plaintext"""
 	result = ''
@@ -36,7 +37,6 @@ def decrypt(n, ciphertext):
 			result += l
 
 	return result
-#from enc import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'jackgod'
 
@@ -94,8 +94,8 @@ app.config['SECRET_KEY'] = 'jackgod'
 
 from googlevoice import Voice
 from googlevoice.util import input
-from psk2 import passwd
-from psk2 import Email
+from psk2 import passwd # Get Password
+from psk2 import Email # Get Email
 
 	
 	
@@ -109,11 +109,12 @@ from psk2 import Email
 #	return render_template('sms.html')
 	
 	
-	
+# Route http request to /sms page then POST Data from sms form	
 @app.route('/sms', methods=['GET','POST'])
 def SMS():
 	#form = Encryption()
 	#offset = 5
+	#Varify http Method is POST and if it is then get the From data 
 	if request.method == 'POST':
 		text = request.form['text']
 		text2 = request.form['number']
@@ -127,18 +128,18 @@ def SMS():
 		voice.send_sms(phoneNumber, text)
 	return render_template('sms.html')
 	
-	
+# Home route Accepts POST AND GET Data:	
 @app.route('/', methods=['GET','POST'])
 def index():
 	#form = Encryption()
 	offset = 5
 	if request.method == 'POST':
 		text = request.form['encode']
-		text2 = request.form['decode']
-		encode3 = base64.b64encode(encrypt(offset, text))
+		text2 = request.form['decode'] # Decrypt data 
+		encode3 = base64.b64encode(encrypt(offset, text)) #Decode base64 encoded string 
 		decode2 = base64.b64decode(text2)
 		decode3 = decrypt(offset, decode2)
-		return render_template ('encode.html', encode3=encode3,decode3=decode3)
+		return render_template ('encode.html', encode3=encode3,decode3=decode3) # response with decoded and Decrypted data
 		#return render_template ('decode.html', decode3=decode3)
 	return render_template('index.html')
 	
@@ -191,6 +192,5 @@ def index():
 	
 	
 	
-	
 if __name__ == '__main__':
-    app.run(host='192.168.1.238',port=5000, debug=False)
+    app.run(host='0.0.0.0',port=5000, debug=False)
