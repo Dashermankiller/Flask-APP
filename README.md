@@ -1,3 +1,2 @@
-# Flesk app
-this app will allow you to send and encrypt text
+# Flesk app (Encript and decript Text,Send sms)
 <img src="https://raw.githubusercontent.com/Dashermankiller/test1/master/static/Enc.PNG" data-canonical-src="#"/>
