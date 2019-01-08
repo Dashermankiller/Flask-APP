@@ -42,55 +42,7 @@ app.config['SECRET_KEY'] = 'jackgod'
 
 #class Encryption(Form):
 #	encode = StringField('encode', validators=[InputRequired()])
-#	decode = StringField('decode', validators=[InputRequired()])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
+#	decode = StringField('decode', validators=[InputRequired()]
 
 from googlevoice import Voice
 from googlevoice.util import input
@@ -141,56 +93,6 @@ def index():
 		decode3 = decrypt(offset, decode2)
 		return render_template ('encode.html', encode3=encode3,decode3=decode3) # response with decoded and Decrypted data
 		#return render_template ('decode.html', decode3=decode3)
-	return render_template('index.html')
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	return render_template('index.html')	
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000, debug=False)
