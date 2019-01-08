@@ -7,7 +7,7 @@ from wtforms import StringField, PasswordField
 import os
 import BeautifulSoup
 from googlevoice import Voice
-from googlevoice.util import input
+#from googlevoice.util import input
 import base64
 key = 'abcdefghijklmnopqrstuvwxyz'
 key2 = '123456789'
@@ -45,9 +45,9 @@ app.config['SECRET_KEY'] = 'jackgod'
 #	decode = StringField('decode', validators=[InputRequired()]
 
 from googlevoice import Voice
-from googlevoice.util import input
-from psk2 import passwd # Get Password
-from psk2 import Email # Get Email
+#from googlevoice.util import input
+Email="Your Gmail "
+passwd="Your Gmail Password"
 
 	
 	
